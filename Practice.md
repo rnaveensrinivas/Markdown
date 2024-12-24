@@ -1003,12 +1003,3 @@ $$
 | **Vectors**                | `$\vec{v}$`                                                              | $\vec{v}$                             |
 | **Absolute Value**         | `$\left\| x \right\|$`|   $\left\| x \right\|$|
 | **Complex Expression**     | ```$$ \frac{\int_0^1 e^x dx}{\sqrt{1+x^2}} + \sum_{n=0}^\infty \frac{1}{n!} $$``` | $\frac{\int_0^1 e^x dx}{\sqrt{1+x^2}} + \sum_{n=0}^\infty \frac{1}{n!}$ |
-| **Aligned Equations** | ```$$\begin{align} x+y&=z \\ a+b&=c \end{align} $$``` |\_ |
-
-$$
-\begin{align} 
-x+y&=z \\
-a+b+c&=c
-\end{align} 
-$$ 
-
