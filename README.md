@@ -1,5 +1,3 @@
-# The Markdown Guide - Matt Cone
-
 # Introduction
 - Markdown is a lightweight, popular, and most successful **markup language** created by John Gruber in 2004.
 - Markdown is used to add formatting elements to plaintext documents. We add markdown syntax to indicate which words or phrases should look different. Eg. Heading uses \#.
@@ -20,7 +18,7 @@
 # Basic Syntax
 * The following constructs were given by John Gurber himself. 
 * `Note`: We can use HTML tags within Mardown files. 
-* 
+  
 ## Headings
 - To create headings use \# symbol. 
 - Number of \# sign corresponds to heading level.
@@ -112,6 +110,23 @@
   | `__*Important*__` text.     | `<strong><em>Important</em></strong>` | __*Important*__ text. |
   | `**_Important_**` text.     | `<strong><em>Important</em></strong>` | **_Important_** text.  |
   | `_**Important**_` text.     | `<em><strong>Important</strong></em>` | _**Important**_ text.  |
+
+### Strikethrough
+* Putting a horizontal line through the center of them. 
+* Use double tilde (~~) before and after the words
+  
+  ```
+  The world is ~~flat~~ round. 
+  ```
+
+* get converted to html as: 
+  ```html
+  <p>The world is <del>flat</del> round.</p>
+  ```
+* rendered output as: 
+  
+  The world is ~~flat~~ round. 
+
 
 ## Blockquotes
 * Blockquotes are a way to indicate that a piece of text is a quotation or is being cited from another source.
@@ -208,7 +223,7 @@
 * List should always start with 1. 
 * Numbers need not be numerical order. 
 
-  ```
+  ```Markdown
   1. First item
   2. Second item
   3. Third item
@@ -250,6 +265,8 @@
   1. First item
   2. Second item
   3. Third item
+     1. Indented item
+     2. Indented item
   4. Fourth item
   ```
 * gets converted to HTML as: 
@@ -259,6 +276,10 @@
     <li>First item</li>
     <li>Second item</li>
     <li>Third item</li>
+      <ol>
+        <li>Indented item</li>
+        <li>Indented item</li>
+      </ol>
     <li>Fourth item</li>
   </ol>
   ```
@@ -268,11 +289,75 @@
   1. First item
   2. Second item
   3. Third item
+     1. Indented item
+     2. Indented item
   4. Fourth item
   ```
+### Unordered List
+* Can be created using `*` or `-` or `+` in front of line items. 
 
+  ```Markdown
+  * First item
+  * Second item
+  + Third item
+    + Indented item
+  - Fourth item
+  ```
 
-## Fenced Code Blocks
+* gets converted to HTML as: 
+  
+  ```html
+  <ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+    <ul>
+      <li>Indented item</li>
+    <ul>
+    <li>Fourth item</li>
+  </ul>
+  ```
+* rendered as: 
+
+  > * First item
+  > * Second item
+  > + Third item
+  >   * Indented item
+  > - Fourth item
+
+### Adding Elements in Lists
+* Add one or more elements to list, using indentation.
+
+## Code
+* To denote word or phrase as code, enclose it in tick marks (\`).
+
+  ```
+  At the command prompt, type `nano`.
+  ```
+* gets converted to HTML as: 
+  ```html
+  At the command prompt, type <code>nano</code>
+  ```
+* rendered as: 
+  ```Markdown
+  At the command prompt, type `nano`.
+  ```
+
+### Escaping Tick Marks
+* If the segment you want denote as code contains tick marks, use double tick marks. 
+  ```
+  ``Use `code` in your Markdown file.``
+  ```
+* get converted to HTML as:
+  ```html
+  <code>Use `code` in your Markdown file.</code>
+  ```
+* rendered as: 
+  ``Use `code` in your Markdown file.``
+
+## Code Blocks
+* Code blocks can be created with indentation (not recommended) or fenced code blocks. 
+### Fenced Code blocks
 - Fence Code Blocks in Markdown are used to display code with proper formatting and without being interpreted as regular text. These are created using triple backticks (```) or triple tildes (~~~).
   ~~~ 
   ```[language]
@@ -291,6 +376,8 @@
     print("hello world")
   ```
   ~~~
+* get rendered as
+
   ```python
   print("hello world")
   ```
@@ -308,86 +395,73 @@
 ---
 
 ## Links
-- To create a link, enclose the link text in brackets (e.g., `[Duck Duck Go]`) and then follow it immediately with the URL in parentheses (e.g., `(https://duckduckgo.com)`).
+- Enclose the link text in brackets (e.g., `[Duck Duck Go]`) and then follow it immediately with the URL in parentheses (e.g., `(https://duckduckgo.com)`).
 
-  | Markdown                                | HTML                                    |
-  |-----------------------------------------|-----------------------------------------|
-  | Use [Duck Duck Go](https://duckduckgo.com). | `<a href="https://duckduckgo.com">Duck Duck Go</a>` |
+  | Markdown| HTML| Rendered |
+  | --- | --- | --- |
+  | ```Use [Duck Duck Go](https://duckduckgo.com).``` | `<a href="https://duckduckgo.com">Duck Duck Go</a>` | Use [Duck Duck Go](https://duckduckgo.com).|
 
-**Rendered Output:**
-Use [Duck Duck Go](https://duckduckgo.com).
+
 
 ### Adding Titles
 - Add a title for a link that appears as a tooltip when hovered.
 
-  | Markdown                                      | HTML                                               |
-  |-----------------------------------------------|----------------------------------------------------|
-  | Use [Duck Duck Go](https://duckduckgo.com "My search engine!"). | `<a href="https://duckduckgo.com" title="My search engine!">Duck Duck Go</a>` |
-
-**Rendered Output:**
-Use [Duck Duck Go](https://duckduckgo.com "My search engine!").
+  | Markdown| HTML | Rendered |
+  | --- | --- | --- |
+  | `Use [Duck Duck Go](https://duckduckgo.com "My search engine!").` | `<a href="https://duckduckgo.com" title="My search engine!">Duck Duck Go</a>` | Use [Duck Duck Go](https://duckduckgo.com "My search engine!"). |
 
 ### URLs and Email Addresses
 - Enclose URLs or email addresses in angle brackets to convert them into links.
 
-  | Markdown                  | HTML                                    |
-  |---------------------------|-----------------------------------------|
-  | <https://eff.org>         | `<a href="https://eff.org">https://eff.org</a>` |
-  | <fake@example.com>        | `<a href="mailto:fake@example.com">fake@example.com</a>` |
+  | Markdown    | HTML  | Rendered |
+  |---|---| --- |
+  | `<https://eff.org>` | `<a href="https://eff.org">https://eff.org</a>` | <https://eff.org> |
+  | `<fake@example.com>` | `<a href="mailto:fake@example.com">fake@example.com</a>` | <fake@example.com> |
 
-**Rendered Output:**
-- [https://eff.org](https://eff.org)
-- [fake@example.com](mailto:fake@example.com)
 
 ### Formatting Links
 - Add emphasis to links using asterisks before and after the brackets and parentheses.
 
-  | Markdown                                | HTML                                    |
-  |-----------------------------------------|-----------------------------------------|
-  | I love supporting **[EFF](https://eff.org)**. | `<strong><a href="https://eff.org">EFF</a></strong>` |
-  | This is the *[EFF](https://eff.org)*.   | `<em><a href="https://eff.org">EFF</a></em>` |
-
-**Rendered Output:**
-- I love supporting **[EFF](https://eff.org)**.
-- This is the *[EFF](https://eff.org)*.
+  | Markdown | HTML  | Rendered |
+  |---|---| --- |
+  | `I love supporting **[EFF](https://eff.org)**.` | `<strong><a href="https://eff.org">EFF</a></strong>` | I love supporting **[EFF](https://eff.org)**. |
+  | `This is the *[EFF](https://eff.org)*.`   | `<em><a href="https://eff.org">EFF</a></em>` | This is the *[EFF](https://eff.org)*. |
 
 ### Reference-Style Links
-- Use reference-style links to make URLs easier to display and read. They consist of two parts:
+- Reference-style links in Markdown allow you to keep the link URLs separate from the text. 
+- This makes the text cleaner and more readable. 
+- They contain two parts, inline mention and reference elsewhere in the Markdown file. 
+- Can add an optional tooltip in quotes.
+- Here's an example:
 
-#### Inline Text
-- The first part is formatted with two sets of brackets: one for the display text and the second for the label (case-insensitive).
+  ```
+  This is an example of a [reference-style link][example-link].
 
-  | Markdown                          | Explanation                |
-  |-----------------------------------|----------------------------|
-  | [hobbit-hole][1]                  | Label is `[1]`.            |
-  | [hobbit-hole][A]                  | Label is `[A]`.            |
+  You can also add a [second link][second-link] for another reference.
 
-#### Reference Details
-- The second part defines the label, URL, and an optional title.
+  [example-link]: https://www.example.com "Optional Tooltip"
+  [second-link]: https://www.secondexample.com
+  ```
 
-  | Markdown                                      | Explanation                |
-  |-----------------------------------------------|----------------------------|
-  | [hobbit-hole]: https://example.com            | URL only                   |
-  | [hobbit-hole]: <https://example.com> "Title" | URL with a title           |
+* When rendered: 
+  
+  This is an example of a [reference-style link][example-link].
 
-#### Example
-```markdown
-In a hole in the ground there lived a hobbit. It was a [hobbit-hole][1].
+  You can also add a [second link][second-link] for another reference.
 
-[1]: <https://example.com> "Hobbit lifestyle"
-```
+  [example-link]: https://www.example.com "Optional Tooltip"
+  [second-link]: https://www.secondexample.com
 
-**Rendered Output:**
-In a hole in the ground there lived a hobbit. It was a [hobbit-hole](https://example.com "Hobbit lifestyle").
 
 ## Images
-- To add an image, add an exclamation mark (`!`), followed by alt text in brackets, and the path or URL to the image asset in parentheses. 
+- Add an exclamation mark (`!`), followed by alt text in brackets, and the path or URL to the image asset in parentheses. 
 - You can optionally add a title after the URL in the parentheses.
 
   ```markdown
   ![Philadelphia's Magic Gardens. This place was so cool!](images/philly-magic-garden.png "Philadelphia's Magic Gardens")
   ```
-
+- gets converted to HTML as: 
+  
   ```html
   <img src="images/philly-magic-garden.png" alt="Philadelphia's Magic Gardens. This place was so cool!" title="Philadelphia's Magic Gardens" />
   ```
@@ -396,7 +470,8 @@ In a hole in the ground there lived a hobbit. It was a [hobbit-hole](https://exa
 
 - To display a literal character that would otherwise be used to format text in a Markdown document, add a backslash `\` in front of the character.
 
-    > \* Without the backslash, this would be a bullet in an unordered list.
+  `\* Without the backslash, this would be a bullet in an unordered list.`
+* gets converted to HTML as: 
 
   ```html
   <p>* Without the backslash, this would be a bullet in an unordered list.</p>
@@ -404,7 +479,7 @@ In a hole in the ground there lived a hobbit. It was a [hobbit-hole](https://exa
 
   The rendered output looks like this:
 
-  `* Without the backslash, this would be a bullet in an unordered list.`
+  \* Without the backslash, this would be a bullet in an unordered list.
 
 ### Characters You Can Escape
 
@@ -426,319 +501,355 @@ In a hole in the ground there lived a hobbit. It was a [hobbit-hole](https://exa
   | `!`       | exclamation mark                       |
   | `\|`       | pipe|
 
-  Here is the content you provided converted into a Markdown file:
-
+---
 
 # Extended Syntax
+* Whatever we have seen so far is was introduced by John Gruber himself. 
+* Although powerful, people wanted more. 
+* Hence we have constructs for tables, code blocks, syntax highlighting, URL auto-linking, and footnotes. 
+* A popular one is [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/)
 
-## HTML
+## Table
+* Use three or more hypens to create column header.
+* Use pipes | to spearate each column.
+* Adding pipes at either end of table is optional, but is recommended. 
+* Table can have links, code words, and emphasis. 
+* Table cannot have headings, blockquotes, lists, horizontal rules, imaegs, or HTML tags.
+* Creating tables using markdown format can be tedious, instead you can use [Tables Generator](https://www.tablesgenerator.com/markdown_tables), that takes GUI input and renders Markdown-formatted text table.
 
-```html
-<pre>
-<code>
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-</code>
-</pre>
-```
+  ```
+  | Syntax | Description |
+  | --- | ------ |
+  | Header | Title |
+  | Paragraph | Text |
+  ```
+* get converted to html as: 
 
-The rendered output looks like this:
+  ```html
+  <table>
+    <thead>
+      <tr class="header">
+        <th>Syntax</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <td>Header</td>
+        <td>Title</td>
+      </tr>
+      <tr class="even">
+        <td>Paragraph</td>
+        <td>Text</td>
+      </tr>
+    </tbody>
+  </table>
+  ```
+* gets rendered as: 
+  | Syntax | Description |
+  | --- | ------ |
+  | Header | Title |
+  | Paragraph | Text |
 
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
+### Alignment
+* Use colon (:) to left, right, or on both side of the hypens within header row.
+  ```
+  | Syntax | Description | Test Text |
+  | :--- | :------: | ---: | 
+  | Header | Title | Here's this |
+  | Paragraph | Text | And more |
+  ```
+* get converted to html as: 
 
-Need to display tick marks inside a code block? See this section to learn how to escape them.
+  ```html
+  <table>
+    <thead>
+      <tr class="header">
+        <th style="text-align: left;">Syntax</th>
+        <th style="text-align: center;">Description</th>
+        <th style="text-align: right;">Test Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <td style="text-align: left;">Header</td>
+        <td style="text-align: center;">Title</td>
+        <td style="text-align: right;">Here’s this</td>
+      </tr>
+      <tr class="even">
+        <td style="text-align: left;">Paragraph</td>
+        <td style="text-align: center;">Text</td>
+        <td style="text-align: right;">And more</td>
+      </tr>
+    </tbody>
+  </table>
+  ```
+* gets rendered as: 
+  | Syntax | Description | Test Text |
+  | :--- | :------: | ---: | 
+  | Header | Title | Here's this |
+  | Paragraph | Text | And more |
+
+## Fenced Code Blocks
+* You can use three ticks \`\`\` or three tildes \~\~\~, before and after the code block.
+
+  ```
+  {
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25
+  }
+  ```
+* gets converted to HTML as: 
+  ```html
+  <pre>
+    <code>
+    {
+      "firstName": "John",
+      "lastName": "Smith",
+      "age": 25
+    }
+    </code>
+  </pre>
+  ```
+
+* The rendered output looks like this:
+  ```
+  {
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25
+  }
+  ```
 
 ## Syntax Highlighting
+* To add color highlighting for whatever language your code was written in. 
+* Specify a language next to the tick marks before the fenced code block.
+  ~~~
+  ```json
+  {
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25
+  }
+  ```
+  ~~~
+* gets converted to json as: 
+  ```html
+  <pre>
+    <code class="language-json">
+      {
+      &quot;firstName&quot;: &quot;John&quot;,
+      &quot;lastName&quot;: &quot;Smith&quot;,
+      &quot;age&quot;: 25
+      }
+    </code>
+  </pre>
+  ```
+* rendered as:
 
-Many Markdown processors support syntax highlighting for fenced code blocks. This feature allows you to add color highlighting for whatever language your code was written in. To add syntax highlighting, specify a language next to the tick marks before the fenced code block.
-~~~
-```json
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
-~~~
-
-The rendered output looks like this:
-
-```json
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
-
-## Footnotes
-
-Footnotes allow you to add notes and references without cluttering the body of the document. When you create a footnote, a superscript number with a link appears where you added the footnote reference. Readers can click the link to jump to the content of the footnote at the bottom of the page.
-
-To create a footnote reference, add a caret and an identifier inside brackets (`[^1]`). Identifiers can be numbers or words, but they can’t contain spaces or tabs. Identifiers only correlate the footnote reference with the footnote itself — in the output, footnotes are numbered sequentially.
-
-Add the footnote using another caret and number inside brackets with a colon and text (`[^1]: My footnote.`). You don’t have to put footnotes at the end of the document. You can put them anywhere except inside other elements like lists, block quotes, and tables.
-
-```markdown
-Here's a simple footnote,[^1] and here's a longer one.[^bignote]
-
-[^1]: This is the first footnote.
-[^bignote]: Here's one with multiple paragraphs and code.
-
-Indent paragraphs to include them in the footnote.
-
-`{ my code }`
-
-Add as many paragraphs as you like.
-```
-
-The rendered output looks like this:
-
-Here’s a simple footnote,¹ and here’s a longer one.²
-
-¹ This is the first footnote.  
-² Here’s one with multiple paragraphs and code.  
-Indent paragraphs to include them in the footnote.  
-`{ my code }`  
-Add as many paragraphs as you like.
-
+  ```json
+  {
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25
+  }
+  ```
 ## Heading IDs
 
-Many Markdown processors support custom IDs for headings — some Markdown processors automatically add them. Adding custom IDs allows you to link directly to headings and modify them with CSS. To add a custom heading ID, enclose the custom ID in curly braces on the same line as the heading.
+* The name itself becomes an id. 
+* The id is hypen separated and case insensitive representation of heading. 
+* `## Heading IDs` will have identifier as `heading-ids`, and can be referenced from anywhere. 
+* For example 
+  ```
+  ### My Great Heading 
+  ```
 
-```markdown
-### My Great Heading {#custom-id}
-```
+* converted to HTML as:
 
-The rendered HTML output looks like this:
+  ```html
+  <h3 id="my-great-heading">My Great Heading</h3>
+  ```
 
-```html
-<h3 id="custom-id">My Great Heading</h3>
-```
+* You can now link to this section using `Link to [My Great Heading](#my-great-heading)`.
 
-## Linking to Heading IDs
+* rendered as: 
+  ### My Great Heading
 
-You can link to headings with custom IDs in the file by creating a standard link with a number sign (`#`) followed by the custom heading ID.
-
-```markdown
-[Heading IDs](#heading-ids)
-```
-
-The rendered HTML output looks like this:
-
-```html
-<a href="#heading-ids">Heading IDs</a>
-```
-
-Other websites can link to the heading by adding the custom heading ID to the full URL of the webpage (e.g., [Heading IDs](https:/www.eff.org/page#heading-ids)).
-
-## Definition Lists
-
-Some Markdown processors allow you to create definition lists of terms and their corresponding definitions. To create a definition list, type the term on the first line. On the next line, type a colon followed by a space and the definition.
-
-```markdown
-First Term
-: This is the definition of the first term.
-
-Second Term
-: This is one definition of the second term.
-: This is another definition of the second term.
-```
-
-The rendered output looks like this:
-
-```
-First Term  
-This is the definition of the first term.
-
-Second Term  
-This is one definition of the second term.  
-This is another definition of the second term.
-```
-
-## Strikethrough
-
-You can “strikethrough” words by putting a horizontal line through the center of them. This feature allows you to indicate that certain words are a mistake not meant for inclusion in the document. To strikethrough words, use two tilde symbols (`~~`) before and after the words.
-
-```markdown
-The world is ~~flat~~ round.
-```
-
-The rendered output looks like this:
-
-```
-The world is flat round.
-```
+  Link to [My Great Heading](#my-great-heading)
 
 ## Task Lists
+* Used to create a list of items with checkboxes. 
+* Checkboxes will be displayed next to the content. 
+* To create a task list, add dashes (`-`) and brackets with a space (`[ ]`) in front of task list items. 
+* To select a checkbox, add an `x` in between the brackets (`[x]`).
 
-Task lists allow you to create a list of items with checkboxes. In Markdown applications that support task lists, checkboxes will be displayed next to the content. To create a task list, add dashes (`-`) and brackets with a space (`[ ]`) in front of task list items. To select a checkbox, add an `x` in between the brackets (`[x]`).
+  ```
+  - [x] Write the press release
+  * [ ] Update the website
+  + [ ] Contact the media
+  ```
 
-```markdown
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
-```
+* rendered as:
 
-The rendered output looks like this:
-
-- [x] Write the press release  
-- [ ] Update the website  
-- [ ] Contact the media  
+  - [x] Write the press release  
+  * [ ] Update the website  
+  + [ ] Contact the media  
 
 ## Automatic URL Linking
 
-Many Markdown processors automatically turn URLs into links. That means if you type `http://www.example.com`, your Markdown processor will automatically turn it into a link even though you haven’t used brackets.
+* Many Markdown processors automatically turn URLs into links even though you haven’t used angular brackets.
 
-```markdown
-http://example.com
-```
-
-The rendered output looks like this: http://example.com
+  ```
+  http://example.com
+  ```
+* gets converted to HTML as: 
+  
+  ```html
+  <a href="http://example.com">http://example.com</a>
+  ```
+* rendered as: 
+ 
+  http://example.com
 
 ## Disabling Automatic URL Linking
 
-If you don’t want a URL to be automatically linked, you can remove the link by denoting the URL as code with tick marks.
+* You can remove the link by denoting the URL as code with tick marks.
 
-```markdown
-`http://www.example.com`
-```
+  ```
+  `http://www.example.com`
+  ```
+* gets converted to HTML as: 
 
-The rendered output looks like this:
+  ```html
+  <code>http://www.example.com</code>
+  ```
 
-```
-http://www.example.com
-```
-
-This Markdown file maintains the structure and provides code blocks, footnotes, and other syntax as outlined.
-
-Here is a Markdown cheat sheet for LaTeX mathematical notations, covering inline and display math along with various commonly used symbols and expressions:
-
+* rendered as:
+  ```
+  http://www.example.com
+  ```
 
 # LaTeX Mathematical Notations in Markdown
 
-Markdown allows you to use LaTeX-style math notations to render mathematical expressions. To use LaTeX in Markdown, enclose the math expression in dollar signs `$` for inline math and double dollar signs `$$` for block (display) math.
+* To use LaTeX in Markdown, enclose the math expression in dollar signs `$` for inline math and double dollar signs `$$` for block (display) math.
 
 ## 1. Inline Math
-To display math inline, enclose the expression between single dollar signs (`$`).
+* To display math inline, enclose the expression between single dollar signs (`$`).
 
-```markdown
-This is an inline math expression: $E = mc^2$.
-```
+  ```markdown
+  This is an inline math expression: $E = mc^2$.
+  ```
 
-Rendered:  
-This is an inline math expression: \( E = mc^2 \).
+* Rendered as:  
+  This is an inline math expression: $E = mc^2$.
 
 ## 2. Block Math (Display Math)
-To display math in a block format (centered and on its own line), enclose the expression in double dollar signs (`$$`).
+* To display math in a block format (centered and on its own line), enclose the expression in double dollar signs (`$$`).
 
-```markdown
-$$
-\int_0^\infty x^2 \, dx
-$$
-```
+  ```markdown
+  $$
+  \int_0^\infty x^2 \, dx
+  $$
+  ```
 
-Rendered:
+* Rendered as:
 
-\[
-\int_0^\infty x^2 \, dx
-\]
+  $$
+  \int_0^\infty x^2 \, dx
+  $$
 
 ## 3. Superscripts and Subscripts
-You can use superscripts (`^`) and subscripts (`_`) in LaTeX.
+* You can use superscripts (`^`) and subscripts (`_`) in LaTeX.
 
-```markdown
-$ x^2 $  (Superscript)
-$ x_1 $  (Subscript)
-```
+  ```markdown
+  $x^2$  (Superscript)
+  $x_1$  (Subscript)
+  ```
 
-Rendered:  
-\( x^2 \) (Superscript)  
-\( x_1 \) (Subscript)
+* Rendered as: $x^2$ (Superscript) - $x_1$ (Subscript)
 
 ## 4. Fractions
-Use `\frac{numerator}{denominator}` to create fractions.
+* Use `\frac{numerator}{denominator}` to create fractions.
 
-```markdown
-$\frac{a}{b}$
-```
+  ```markdown
+  $\frac{a}{b}$
+  ```
 
-Rendered:  
-\( $\frac{a}{b}$ \)
+* Rendered as: $\frac{a}{b}$
 
 ## 5. Square Roots
-Use `\sqrt{expression}` to create square roots.
+* Use `\sqrt{expression}` to create square roots.
 
-```markdown
+  ```markdown
+  $\sqrt{x^2 + y^2}$
+  ```
+
+* Rendered as: 
 $\sqrt{x^2 + y^2}$
-```
-
-Rendered:  
-\( \sqrt{x^2 + y^2} \)
 
 ## 6. Greek Letters
-You can use LaTeX commands to display Greek letters.
+* You can use LaTeX commands to display Greek letters.
 
-```markdown
-$\alpha$, $\beta$, $\gamma$, $\delta$, $\pi$, $\theta$
-```
+  ```markdown
+  $\alpha$, $\beta$, $\gamma$, $\delta$, $\pi$, $\theta$
+  ```
 
-Rendered:  
-\( \alpha, \beta, \gamma, \delta, \pi, \theta \)
+* Rendered as: $\alpha, \beta, \gamma, \delta, \pi, \theta$
 
 ## 7. Summation and Product Notation
-Use `\sum` for summation and `\prod` for product notation.
+* Use `\sum` for summation and `\prod` for product notation.
 
-```markdown
-$\sum_{i=1}^n x_i$  (Summation)
-$\prod_{i=1}^n x_i$  (Product)
-```
+  ```markdown
+  $\sum_{i=1}^n x_i$  (Summation)
+  $\prod_{i=1}^n x_i$  (Product)
+  ```
 
-Rendered:  
-\[
+* Rendered as: 
+$$
 \sum_{i=1}^n x_i
-\]  
-\[
+$$  
+$$
 \prod_{i=1}^n x_i
-\]
+$$
 
 ## 8. Limits
-Use `\lim` to create limits in mathematical expressions.
+* Use `\lim` to create limits in mathematical expressions.
 
-```markdown
+  ```markdown
+  $\lim_{x \to \infty} f(x)$
+  ```
+
+* Rendered as: 
 $\lim_{x \to \infty} f(x)$
-```
+$$\lim_{x \to \infty} f(x)$$
 
-Rendered:  
-\[
-\lim_{x \to \infty} f(x)
-\]
 
 ## 9. Integral Notation
-Use `\int` for integrals.
+* Use `\int` for integrals.
 
 ```markdown
-$\int_{0}^{\infty} e^{-x} \, dx$
+$\int_{0}^{\infty} e^{-x} dx$
 ```
 
-Rendered:  
-\[
-\int_{0}^{\infty} e^{-x} \, dx
-\]
+* Rendered as: 
+$\int_{0}^{\infty} e^{-x} dx$
 
 ## 10. Matrices
-You can use the `\begin{matrix} ... \end{matrix}` syntax for matrices.
+* You can use the `\begin{matrix} ... \end{matrix}` syntax for matrices.
 
-```markdown
+  ```markdown
+  $$
+  \begin{matrix}
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9
+  \end{matrix}
+  $$
+  ```
+
+* Rendered as:
+
 $$
 \begin{matrix}
 1 & 2 & 3 \\
@@ -746,458 +857,157 @@ $$
 7 & 8 & 9
 \end{matrix}
 $$
-```
-
-Rendered:
-
-\[
-\begin{matrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{matrix}
-\]
 
 ## 11. Aligning Equations
-Use the `align` environment to align equations. Each equation is placed on a new line, and `&` is used to specify alignment points.
+* Use the `align` environment to align equations. 
+* Each equation is placed on a new line, and `&` is used to specify alignment points.
 
-```markdown
+  ```markdown
+  $$
+  \begin{align}
+    x + y &= z \\
+    a + b + c &= c
+  \end{align}
+  $$
+  ```
+
+* Rendered as:
+
 $$
 \begin{align}
   x + y &= z \\
-  a + b &= c
+  a + b + c&= c
 \end{align}
 $$
-```
-
-Rendered:
-
-\[
-\begin{align}
-  x + y &= z \\
-  a + b &= c
-\end{align}
-\]
 
 ## 12. Exponents and Logarithms
-Use `\exp` for exponentials and `\log` for logarithms.
+* Use `\exp` for exponentials and `\log` for logarithms.
 
-```markdown
-$\exp(x)$  (Exponential)
-$\log(x)$  (Logarithm)
-```
+  ```markdown
+  $\exp(x)$  (Exponential)
+  $\log(x)$  (Logarithm)
+  ```
 
-Rendered:  
-\( \exp(x) \) (Exponential)  
-\( \log(x) \) (Logarithm)
+* Rendered as: 
+    
+  $\exp(x)$ (Exponential)  
+  $\log(x)$ (Logarithm)
 
 ## 13. Binomial Coefficient
-Use `\binom{n}{k}` for binomial coefficients.
+* Use `\binom{n}{k}` for binomial coefficients.
 
-```markdown
-$\binom{n}{k}$
-```
+  ```markdown
+  $\binom{n}{k}$
+  ```
 
-Rendered:  
-\[
+* Rendered as: 
+$$
 \binom{n}{k}
-\]
+$$
 
 ## 14. Brackets and Parentheses
-You can use `\left` and `\right` to automatically adjust the size of brackets and parentheses.
+* You can use `\left` and `\right` to automatically adjust the size of brackets and parentheses.
 
-```markdown
-$\left( \frac{a}{b} \right)$
-```
+  ```markdown
+  $\left( \frac{a}{b} \right)$
+  ```
 
-Rendered:  
-\[
+* Rendered as: 
+$$
 \left( \frac{a}{b} \right)
-\]
+$$
 
 ## 15. Derivatives and Differential Operators
-Use `\frac{d}{dx}` for derivatives.
+* Use `\frac{d}{dx}` for derivatives.
 
-```markdown
-$\frac{d}{dx} f(x)$
-```
+  ```markdown
+  $\frac{d}{dx} f(x)$
+  ```
 
-Rendered:  
-\[
+* Rendered as: 
+$$
 \frac{d}{dx} f(x)
-\]
+$$
 
 ## 16. Angle Notations
-You can denote angles using `\angle`.
+* You can denote angles using `\angle`.
 
-```markdown
-$\angle ABC$
-```
+  ```markdown
+  $\angle ABC$
+  ```
 
-Rendered:  
-\[
+* Rendered as: 
+$$
 \angle ABC
-\]
+$$
 
 ## 17. Vectors and Matrices
-You can represent vectors and matrices using `\vec{}` for vectors and `\mathbf{}` for bold matrices.
+* You can represent vectors and matrices using `\vec{}` for vectors and `\mathbf{}` for bold matrices.
 
-```markdown
-$\vec{v}$  (Vector)
-$\mathbf{M}$  (Matrix)
-```
+  ```markdown
+  $\vec{v}$  (Vector)
+  $\mathbf{M}$  (Matrix)
+  ```
 
-Rendered:  
-\( \vec{v} \) (Vector)  
-\( \mathbf{M} \) (Matrix)
+* Rendered as: 
+  
+  $\vec{v}$ (Vector)  
+  $\mathbf{M}$ (Matrix)
 
 ## 18. Absolute Value
-Use `\left| ... \right|` to denote absolute value.
+* Use `\left| ... \right|` to denote absolute value.
 
-```markdown
+  ```markdown
+  $\left| x \right|$
+  ```
+
+* Rendered as: 
 $\left| x \right|$
-```
 
-Rendered:  
-\[
-\left| x \right|
-\]
+## 19. Complex Expressions
+* You can combine all of these symbols to create complex mathematical expressions.
 
-## 19. Parentheses and Brackets
-Use `\left` and `\right` for automatically sized parentheses or brackets.
+  ```markdown
+  $$
+  \frac{\int_0^1 e^x \, dx}{\sqrt{1 + x^2}} + \sum_{n=0}^{\infty} \frac{1}{n!}
+  $$
+  ```
 
-```markdown
-$\left( \frac{a}{b} \right)$
-```
+* Rendered as:
 
-Rendered:  
-\[
-\left( \frac{a}{b} \right)
-\]
-
-## 20. Complex Expressions
-You can combine all of these symbols to create complex mathematical expressions.
-
-```markdown
 $$
 \frac{\int_0^1 e^x \, dx}{\sqrt{1 + x^2}} + \sum_{n=0}^{\infty} \frac{1}{n!}
 $$
-```
 
-Rendered:
-
-\[
-\frac{\int_0^1 e^x \, dx}{\sqrt{1 + x^2}} + \sum_{n=0}^{\infty} \frac{1}{n!}
-\]
-```
-
-This Markdown cheat sheet provides the basic syntax and examples for using LaTeX-style math expressions within Markdown documents. You can render inline and block math, handle common operations like summations and integrals, and format equations for clarity and style.
-
-# Markdown Cheat Sheet
-
-## 1. Headers
-
-Use `#` followed by a space to create headers. More `#` symbols indicate a smaller header.
-
-```markdown
-# H1 - Main Header
-## H2 - Sub Header
-### H3 - Sub Sub Header
-#### H4 - Sub Sub Sub Header
-##### H5
-###### H6
-```
-
-## 2. Emphasis
-
-### Italics
-Use one asterisk `*` or underscore `_` around text to italicize.
-
-```markdown
-*Italic text* or _Italic text_
-```
-
-### Bold
-Use two asterisks `**` or underscores `__` around text to make it bold.
-
-```markdown
-**Bold text** or __Bold text__
-```
-
-### Bold and Italics
-Use three asterisks `***` or underscores `___` around text for bold and italic.
-
-```markdown
-***Bold and italic text*** or ___Bold and italic text___
-```
-
-## 3. Strikethrough
-Use two tilde symbols `~~` to strikethrough text.
-
-```markdown
-~~Strikethrough text~~
-```
-
-## 4. Lists
-
-### Unordered Lists
-Use asterisks `*`, plus `+`, or minus `-` followed by a space.
-
-```markdown
-* Item 1
-* Item 2
-  * Subitem 1
-  * Subitem 2
-```
-
-### Ordered Lists
-Use numbers followed by a period `.`
-
-```markdown
-1. First item
-2. Second item
-   1. Subitem A
-   2. Subitem B
-```
-
-### Task Lists
-Use a dash `-` or asterisk `*` with checkboxes `[ ]`.
-
-```markdown
-- [x] Completed task
-- [ ] Incomplete task
-```
-
-## 5. Links
-
-### Inline Links
-Use square brackets `[]` for the link text, followed by the URL in parentheses `()`.
-
-```markdown
-[OpenAI](https://www.openai.com/)
-```
-
-### Reference Links
-You can define the URL elsewhere in the document.
-
-```markdown
-[Google]: https://www.google.com
-Here is a [Google] link.
-```
-
-### Link with Title
-You can also add a title for the link.
-
-```markdown
-[GitHub](https://github.com "Go to GitHub")
-```
-
-## 6. Images
-Images are similar to links but with an exclamation mark `!` in front.
-
-```markdown
-![Alt Text](image-url.jpg)
-```
-
-### Image with Title
-```markdown
-![Alt Text](image-url.jpg "Image Title")
-```
-
-## 7. Code
-
-### Inline Code
-Use backticks `` ` `` for inline code.
-
-```markdown
-This is `inline code`.
-```
-
-### Code Blocks
-Use triple backticks ```` ``` ```` or triple tildes `~~~`.
-
-```markdown
-```
-Code block here
-```
-```
-
-For syntax highlighting, specify the language after the backticks.
-
-```markdown
-```python
-print("Hello, World!")
-```
-```
-
-## 8. Blockquotes
-Use the greater than symbol `>` to create blockquotes.
-
-```markdown
-> This is a blockquote.
-```
-
-### Nested Blockquotes
-You can nest blockquotes by adding more `>` symbols.
-
-```markdown
-> First level
->> Second level
-```
-
-## 9. Horizontal Line
-Create a horizontal line with three or more dashes `---`, asterisks `***`, or underscores `___`.
-
-```markdown
----
-```
-
-## 10. Footnotes
-
-You can add footnotes to your document.
-
-```markdown
-Here's a simple footnote,[^1] and here's a longer one.[^bignote]
-
-[^1]: This is the first footnote.
-[^bignote]: Here's one with multiple paragraphs and code.
-
-Indent paragraphs to include them in the footnote.
-
-`{ my code }`
-```
-
-## 11. Tables
-
-Create tables using pipes `|` and hyphens `-`.
-
-```markdown
-| Header 1 | Header 2 |
-|----------|----------|
-| Cell 1   | Cell 2   |
-| Cell 3   | Cell 4   |
-```
-
-### Aligning Table Text
-
-Align text within columns using colons `:`.
-
-```markdown
-| Left Aligned | Center Aligned | Right Aligned |
-|:-------------|:--------------:|--------------:|
-| Left text    | Center text    | Right text    |
-```
-
-## 12. Special Characters
-
-To display special characters like `<`, `>`, `&`, etc., you need to escape them using backslashes `\`.
-
-```markdown
-\*This is not italic\*
-```
-
-## 13. HTML Elements
-
-You can use raw HTML within Markdown. For example, for a table or custom styling.
-
-```html
-<div style="color: blue;">This is a custom div.</div>
-```
-
-## 14. Heading IDs
-
-Add custom IDs to headings by enclosing them in curly braces `{}`.
-
-```markdown
-### My Great Heading {#custom-id}
-```
-
-### Linking to Heading IDs
-Link to custom heading IDs with `#`.
-
-```markdown
-[Link to My Great Heading](#custom-id)
-```
-
-## 15. Escaping Characters
-
-To display the special Markdown symbols like backticks or asterisks, use a backslash `\`.
-
-```markdown
-\*This will not italicize\*
-```
-
-## 16. Syntax Highlighting
-
-For code blocks, add the language name after the opening triple backticks to enable syntax highlighting.
-
-```markdown
-```javascript
-let x = 5;
-console.log(x);
-```
-```
-
-## 17. Definition Lists (Not Supported Everywhere)
-
-```markdown
-Term 1
-: Definition of term 1
-
-Term 2
-: Definition of term 2
-```
-
-## 18. Emoji
-
-Markdown supports emojis. Use the short code inside colons `:emoji:`.
-
-```markdown
-:smile: :heart: :rocket:
-```
-
-## 19. Comments
-
-Markdown supports comments, but they are not rendered.
-
-```markdown
-<!-- This is a comment -->
-```
-
-## 20. HTML Entities
-
-You can use HTML entities to display characters such as `&`, `<`, `>`, etc.
-
-```markdown
-&copy; 2024
-```
-
-## 21. Mathematical Notation (LaTeX)
-
-Some Markdown processors support LaTeX for mathematical expressions. Use dollar signs `$` for inline math and double dollar signs `$$` for display math.
-
-```markdown
-Inline math: $E = mc^2$
-Display math:
+# LaTeX Mathematical Notations Cheat Sheet
+
+| **Feature**               | **Syntax**                                                                 | **Rendered**                          |
+|----------------------------|---------------------------------------------------------------------------|---------------------------------------|
+| **Inline Math**            | `$E = mc^2$`                                                             | $E = mc^2$                            |
+| **Block Math**             | `$$ \int_0^\infty x^2 \, dx $$`                                          | $\int_0^\infty x^2 \, dx$         |
+| **Superscript**            | `$x^2$`                                                                  | $x^2$                                 |
+| **Subscript**              | `$x_1$`                                                                  | $x_1$                                 |
+| **Fraction**               | `$\frac{a}{b}$`                                                          | $\frac{a}{b}$                         |
+| **Square Root**            | `$\sqrt{x^2 + y^2}$`                                                     | $\sqrt{x^2 + y^2}$                    |
+| **Greek Letters**          | `$\alpha, \beta, \gamma$`                                                | $\alpha, \beta, \gamma$               |
+| **Summation**              | `$\sum_{i=1}^n x_i$`                                                     | $\sum_{i=1}^n x_i$                    |
+| **Limits**                 | `$\lim_{x \to \infty} f(x)$`                                             | $\lim_{x \to \infty} f(x)$            |
+| **Integrals**              | `$\int_0^\infty e^{-x} dx$`                                              | $\int_0^\infty e^{-x} dx$             |
+| **Matrix** | ```$$ \begin{matrix} 1 & 2 \\ 3 & 4 \end{matrix} $$```                   | $\begin{matrix} 1 & 2 \\ 3 & 4 \end{matrix}$ |
+| **Exponentials**           | `$\exp(x)$`                                                              | $\exp(x)$                             |
+| **Logarithms**             | `$\log(x)$`                                                              | $\log(x)$                             |
+| **Binomial Coefficient**   | `$\binom{n}{k}$`                                                         | $\binom{n}{k}$                        |
+| **Brackets & Parentheses** | `$\left( \frac{a}{b} \right)$`                                           | $\left( \frac{a}{b} \right)$          |
+| **Derivatives**            | `$\frac{d}{dx} f(x)$`                                                    | $\frac{d}{dx} f(x)$                   |
+| **Angles**                 | `$\angle ABC$`                                                           | $\angle ABC$                          |
+| **Vectors**                | `$\vec{v}$`                                                              | $\vec{v}$                             |
+| **Absolute Value**         | `$\left\| x \right\|$`|   $\left\| x \right\|$|
+| **Complex Expression**     | ```$$ \frac{\int_0^1 e^x dx}{\sqrt{1+x^2}} + \sum_{n=0}^\infty \frac{1}{n!} $$``` | $\frac{\int_0^1 e^x dx}{\sqrt{1+x^2}} + \sum_{n=0}^\infty \frac{1}{n!}$ |
+| **Aligned Equations** | ```$$\begin{align} x+y&=z \\ a+b&=c \end{align} $$``` |\_ |
 $$
-\int_0^\infty x^2 dx
-$$
-```
+\begin{align} 
+x+y&=z \\
+a+b+c&=c
+\end{align} 
+$$ 
 
-## 22. Nested Lists
-
-You can nest lists inside other lists (ordered and unordered).
-
-```markdown
-1. Item 1
-   - Subitem 1
-   - Subitem 2
-2. Item 2
-```
-
----
-
-This cheat sheet covers a broad set of Markdown features, including headers, formatting, links, lists, footnotes, tables, HTML elements, and more.
-```
-
-This Markdown cheat sheet provides an extensive overview of Markdown's capabilities, including syntax highlighting, lists, tables, footnotes, and various other features. You can use this to create rich documents with Markdown!
