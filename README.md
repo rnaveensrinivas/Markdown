@@ -866,7 +866,7 @@ $$
   $$
   \begin{align}
     x + y &= z \\
-    a + b + c &= c
+    a + b + c &= d
   \end{align}
   $$
   ```
@@ -1009,6 +1009,6 @@ $$
 $$
 \begin{align} 
 x+y&=z \\
-a+b+c&=c
+a+b+c&=d
 \end{align} 
 $$ 
