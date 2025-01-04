@@ -1,4 +1,5 @@
 # Table of Contents
+* [**Cheat sheet**](#cheat-sheet)
 * [Introduction](#introduction)
 * [Basic Syntax](#basic-syntax)
   * [Headings](#headings)
@@ -49,7 +50,6 @@
   * [Vectors and Matrices](#vectors-and-matrices)
   * [Absolute Value](#absolute-value)
   * [Complex Expressions](#complex-expressions)
-* [**Cheat sheet**](#cheat-sheet)
 ---
 
 # Introduction
@@ -423,7 +423,7 @@ An ordered list is created by adding a number followed by a period. A few key po
 
 #### Example
 ##### Markdown: 
-```markdown
+```
 1. First item
 2. Second item
 3. Third item
@@ -453,12 +453,10 @@ An ordered list is created by adding a number followed by a period. A few key po
 
 ##### Rendered Output:
 
-```markdown
 1. First item
 2. Second item
 3. Third item
 4. Fourth item
-```
 
 ---
 
@@ -468,7 +466,7 @@ To create a nested list, simply indent the list item with four spaces or a tab.
 
 #### Example:
 ##### Markdown: 
-```markdown
+```
 1. First item
 2. Second item
 3. Third item
@@ -494,14 +492,12 @@ To create a nested list, simply indent the list item with four spaces or a tab.
 
 ##### Rendered Output: 
 
-```markdown
 1. First item
 2. Second item
 3. Third item
    1. Indented item
    2. Indented item
 4. Fourth item
-```
 
 ---
 
@@ -512,7 +508,7 @@ An unordered list can be created using `*`, `-`, or `+` before the line item.
 #### Example: 
 ##### Markdown: 
 
-```markdown
+```
 * First item
 * Second item
 + Third item
@@ -536,13 +532,13 @@ An unordered list can be created using `*`, `-`, or `+` before the line item.
 
 ##### Rendered Output: 
 
-```markdown
+
 * First item
 * Second item
 + Third item
   * Indented item
 - Fourth item
-```
+
 
 ---
 
@@ -1512,83 +1508,65 @@ $$
 
 ---
 
-# LaTeX Mathematical Notations Cheat Sheet
-
-| **Feature**               | **Syntax**                                                                 | **Rendered**                          |
-|----------------------------|---------------------------------------------------------------------------|---------------------------------------|
-| **Inline Math**            | `$E = mc^2$`                                                             | $E = mc^2$                            |
-| **Block Math**             | `$$ \int_0^\infty x^2 \, dx $$`                                          | $\int_0^\infty x^2 \, dx$         |
-| **Superscript**            | `$x^2$`                                                                  | $x^2$                                 |
-| **Subscript**              | `$x_1$`                                                                  | $x_1$                                 |
-| **Fraction**               | `$\frac{a}{b}$`                                                          | $\frac{a}{b}$                         |
-| **Square Root**            | `$\sqrt{x^2 + y^2}$`                                                     | $\sqrt{x^2 + y^2}$                    |
-| **Greek Letters**          | `$\alpha, \beta, \gamma$`                                                | $\alpha, \beta, \gamma$               |
-| **Summation**              | `$\sum_{i=1}^n x_i$`                                                     | $\sum_{i=1}^n x_i$                    |
-| **Limits**                 | `$\lim_{x \to \infty} f(x)$`                                             | $\lim_{x \to \infty} f(x)$            |
-| **Integrals**              | `$\int_0^\infty e^{-x} dx$`                                              | $\int_0^\infty e^{-x} dx$             |
-| **Matrix** | ```$$ \begin{matrix} 1 & 2 \\ 3 & 4 \end{matrix} $$```                   | $\begin{matrix} 1 & 2 \\ 3 & 4 \end{matrix}$ |
-| **Exponentials**           | `$\exp(x)$`                                                              | $\exp(x)$                             |
-| **Logarithms**             | `$\log(x)$`                                                              | $\log(x)$                             |
-| **Binomial Coefficient**   | `$\binom{n}{k}$`                                                         | $\binom{n}{k}$                        |
-| **Brackets & Parentheses** | `$\left( \frac{a}{b} \right)$`                                           | $\left( \frac{a}{b} \right)$          |
-| **Derivatives**            | `$\frac{d}{dx} f(x)$`                                                    | $\frac{d}{dx} f(x)$                   |
-| **Angles**                 | `$\angle ABC$`                                                           | $\angle ABC$                          |
-| **Vectors**                | `$\vec{v}$`                                                              | $\vec{v}$                             |
-| **Absolute Value**         | `$\left\| x \right\|$`|   $\left\| x \right\|$|
-| **Complex Expression**     | ```$$ \frac{\int_0^1 e^x dx}{\sqrt{1+x^2}} + \sum_{n=0}^\infty \frac{1}{n!} $$``` | $\frac{\int_0^1 e^x dx}{\sqrt{1+x^2}} + \sum_{n=0}^\infty \frac{1}{n!}$ |
-| **Aligned Equations** | ```$$\begin{align} x+y&=z \\ a+b&=c \end{align} $$``` |\_ |
-
-
-$$
-\begin{align} 
-x+y&=z \\
-a+b+c&=d
-\end{align} 
-$$ 
-
----
-
 # Cheat Sheet
 
-Here's the simplified table with only **Element** and **Syntax** columns:
+| **Element**                     | **Markdown Syntax**                                                                                       |
+|----------------------------------|----------------------------------------------------------------------------------------------------------|
+| Heading 1                       | `# heading 1` <br> `heading 1` <br> `=====`                                                              |
+| Heading 2                       | `## heading 2` <br> `heading 2` <br> `-----`                                                             |
+| Heading 3                       | `### heading 3`                                                                                          |
+| Heading 4                       | `#### heading 4`                                                                                         |
+| Heading 5                       | `##### heading 5`                                                                                        |
+| Heading 6                       | `###### heading 6`                                                                                       |
+| Paragraph                       | Leave a blank line between text                                                                          |
+| Line Break                      | `<br>` <br> or add two spaces at the end of the line                                                     |
+| Bold                            | `__bold__` <br> `**bold**`                                                                               |
+| Italic                          | `*italic*` <br> `_italic_`                                                                               |
+| Bold + Italic                   | `**_BoldAndItalic_**` <br> `***BoldAndItalic***` <br> `___BoldAndItalic___` <br> `__*BoldAndItalic*__` <br> `_**BoldAndItalic**_`  |
+| Strikethrough                   | `~~strikethrough~~`                                                                                      |
+| Underline                       | `<u>underline</u>`                                                                                       |
+| Highlight                       | `<mark>Highlight</mark>`                                                                                 |
+| Blockquote                      | `> Block quotes`                                                                                         |
+| Blockquote with paragraph       | `> Block quotes paragraph 1` <br> `>` <br> `> Block quotes paragraph 2`                                  |
+| Nested Blockquote               | `>> Block quotes` <br> `>> Nested Block quotes` <br> `>>> Double nested block quotes`                    |
+| Blockquote with Formatting      | `> # Can have other elements` <br> `>> It can have _italic_ and **bold**`                                |
+| Ordered List                    | `1. Item` <br> `2. Item` <br><br> `1. Item` <br> `1. Item` <br><br>   `1. Item` <br> `3. Item` <br><br>  |
+| Unordered List                  | `* Item` <br> `- Item` <br> `+ Item`                                                                     |
+| Nested List                     | Indent with spaces or tabs                                                                               |
+| Inline Code                     | `` `inline code` ``                                                                                      |
+| Code Block                      | ```` ```plaintext` <br> `... code block ...` ````                                                        |
+| Horizontal Rule                 | `---` <br> `***` <br> `___`                                                                              |
+| Link                            | `[Link Text](URL "title")`                                                                               |
+| Link 2                          | `<url.can.be.enclosed.in.angular.brackets.to.make.them.clickable.links.com>` <br> `<you.can.also.have@mail.here>` |
+| Link to Headings                | `[Heading " Name / Hypen &* Separated ignOring SpEciaL SymboLS](#heading-name-hypen-separated-ignoring-special-symbols)` |
+| Reference Link                  | `[Reference Text][ref]` <br> `[ref]: URL "title"`                                                        |
+| Image                           | `![Alt Text](URL "title")`                                                                               |
+| Escaping Characters             | `\*Escaped Characters\*`                                                                                 |
+| Subscript                       | `<sub>subscript</sub>`                                                                                   |
+| Superscript                     | `<sup>superscript</sup>`                                                                                 |
+| Table                           | `\| Heading 1 \| Heading 2 \| Heading 3 \|` <br> `\|:---\|:---:\|:---\|` <br> `\|right align\|center align\|left align\|` |
+| Task List                       | `- [ ] Task` <br> `- [x] Completed Task` <br> `* [ ] Incompleted Task`                                   |
+| Automatic URL Linking           | `http://example.com`                                                                                     |
+| Disable URL Linking             | `` `http://example.com` ``                                                                               |
+| Inline Math                     | `$E = mc^2$`                                                                                             |
+| Block Math                      | `$$ \int_0^\infty x^2 dx $$`                                                                             |
+| Superscript                     | `$x^2$`                                                                                                  |
+| Subscript                       | `$x_1$`                                                                                                  |
+| Fraction                        | `$\frac{a}{b}$`                                                                                          |
+| Square Root                     | `$\sqrt{x^2 + y^2}$`                                                                                     |
+| Greek Letters                   | `$\alpha$` <br> `$\beta$` <br> `$\gamma$` <br> `$\delta$` <br> `$\pi$` <br>  `$\theta$`                  |
+| Summation                       | `$\sum_{i=1}^n x_i$`                                                                                     |
+| Product Notation                | `$\prod_{i=1}^n x_i$`                                                                                    |
+| Limits                          | `$\lim_{x \to \infty} f(x)$`                                                                             |
+| Integrals                       | `$\int_{0}^{\infty} e^{-x} dx$`                                                                          |
+| Matrices                        | `$$ \begin{matrix} 1 & 2 \\ 3 & 4 \end{matrix} $$`                                                       |
+| Aligned Equations               | `$$ \begin{align} x + y &= z \\ a &= b + c \end{align} $$`                                               |
+| Exponents/Logarithms            | `$\exp(x)$` <br> `$\log(x)$`                                                                             |
+| Binomial Coefficient            | `$\binom{n}{k}$`                                                                                         |
+| Brackets                        | `$\left( \frac{a}{b} \right)$`                                                                           |
+| Derivative                      | `$\frac{d}{dx} f(x)$`                                                                                    |
+| Angle                           | `$\angle ABC$`                                                                                           |
+| Vector                          | `$\vec{v}$`                                                                                              |
+| Absolute Value                  | `$\left\| x \right\|$`                                                                                   |
+| Complex Expression              | `$$ \frac{\int_0^1 e^x dx}{\sqrt{1 + x^2}} + \sum_{n=0}^{\infty} \frac{1}{n!} $$`                        |
 
-| **Element**                    | **Syntax**                                               |
-|---------------------------------|----------------------------------------------------------|
-| **Heading 1**                   | `# Heading 1`                                            |
-| **Heading 2**                   | `## Heading 2`                                           |
-| **Heading 3**                   | `### Heading 3`                                          |
-| **Heading 4**                   | `#### Heading 4`                                         |
-| **Heading 5**                   | `##### Heading 5`                                        |
-| **Heading 6**                   | `###### Heading 6`                                       |
-| **Bold Text**                   | `**bold**` or `__bold__`                                 |
-| **Italic Text**                 | `*italic*` or `_italic_`                                 |
-| **Strikethrough**               | `~~strikethrough~~`                                      |
-| **Ordered List**                | `1. Ordered List`                                        |
-| **Unordered List**              | `- Unordered List` or `*`                               |
-| **Hyperlink**                   | `[Link Text](URL)`                                       |
-| **Image**                       | `![Alt Text](Image URL)`                                 |
-| **Inline Code**                 | `` `code` ``                                             |
-| **Code Block**                  | ` ```code``` `                                           |
-| **Blockquote**                  | `> Blockquote`                                           |
-| **Task List**                   | `- [ ] Task list item`                                   |
-| **Escaped Characters**          | `\*emphasized\*`                                         |
-| **Horizontal Rule**             | `___` or `***`                                           |
-| **Emoji**                       | `:emoji:`                                                |
-| **Inline Math (LaTeX)**         | `\(\math{expression}\)`                                  |
-| **Block Math (LaTeX)**          | `$$\math{expression}$$`                                  |
-| **Subscript**                   | `\subscript{text}`                                       |
-| **Superscript**                 | `\superscript{text}`                                     |
-| **Fraction (LaTeX)**            | `\frac{a}{b}`                                            |
-| **Square Root (LaTeX)**         | `\sqrt{expression}`                                      |
-| **Summation (LaTeX)**           | `\sum_{i=1}^n`                                          |
-| **Integral (LaTeX)**            | `\int_{0}^{\infty}`                                     |
-| **Limit (LaTeX)**               | `\lim_{x \to \infty}`                                   |
-| **Binomial Coefficient (LaTeX)**| `\binom{n}{k}`                                          |
-| **Brackets (LaTeX)**            | `\left( \frac{a}{b} \right)`                             |
-| **Vector (LaTeX)**              | `\vec{v}`                                               |
-| **Matrix (LaTeX)**              | `\mathbf{M}`                                            |
-| **Angle (LaTeX)**               | `\angle ABC`                                            |
-| **Absolute Value (LaTeX)**      | `\left| x \right|`                                      |
-
-
-This table now focuses only on the **Element** and **Syntax** columns.
