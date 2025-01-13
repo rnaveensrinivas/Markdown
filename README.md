@@ -1144,6 +1144,36 @@ You can directly insert emojis by copying and pasting the character.
 ##### Rendered Output:
 😀 ❤️ 🚀
 
+## Hidden Text
+
+Markdown itself doesn't provide a native feature to hide content. However, you can achieve this behavior in certain environments that support additional functionality.
+
+
+### HTML `<details>` and `<summary>` tags (in supported Markdown environments)
+
+You can use HTML tags to create collapsible sections in environments like GitHub or GitLab that support HTML rendering in Markdown:
+
+#### HTML Code
+```markdown
+<details>
+<summary>Click to expand</summary>
+
+Your hidden content goes here.
+
+</details>
+```
+This will create a collapsible section. When you click "Click to expand," it will show the hidden content.
+
+
+#### Rendered Output
+<details>
+<summary>Click to expand</summary>
+
+Your hidden content goes here.
+
+</details>
+
+
 ---
 
 # LaTeX Mathematical Notations
