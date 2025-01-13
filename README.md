@@ -30,6 +30,7 @@
   * [Automatic URL Linking](#automatic-url-linking)
   * [Disabling Automatic URL Linking](#disabling-automatic-url-linking)
   * [Emoji](#emoji)
+  * [Hidden Text](#hidden-text)
 * [LaTeX Mathematical Notation](#latex-mathematical-notations)
   * [Inline Math](#inline-math)
   * [Block Math](#block-math-display-math)
